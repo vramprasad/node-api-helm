@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-api-helm
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-api-helm
+  template:
+    metadata:
+      labels:
+        app: node-api-helm
+    spec:
+      containers:
+      - name: node-api-helm
+        image: vramprasad/node-api-helm:latest  # <-- update with your image repo
+        ports:
+        - containerPort: 3000
+        env:
+        - name: PORT
+          value: "3000"
+        - name: DEPLOYMENT_ENV
+          value: "production1"
