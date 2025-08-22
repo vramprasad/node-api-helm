@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-COPY index.js /app
+COPY ./src/index.js /app
 COPY .env /app
 RUN pwd 
 RUN ls -ltrh
